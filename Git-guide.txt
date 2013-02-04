@@ -1,0 +1,78 @@
+Git Skeleton User Guide
+
+1.	git是什么？
+Git是由Linus Torvalds最先创建开发的代码管理工具。它具有速度快，开源，分布式管理的特点。不同于其他的代码管理工具（如SVN，ClearCase等），它是利用快照snapshot，而不是changesets的机制来管理代码。
+
+2.	客户端的安装和配置
+1)	在windows下安装bash git 客户端Git-1.6.5.1-preview20091022.exe
+2)	在git bash的console中配置git
+3)	配置 username 
+
+git config --global user.name "xuhansheng"
+
+4)	配置 email
+
+git config --global user.email  xuhansheng@gmail.com
+
+5)	生成SSH public key，用于在github服务端注册。每台客户端key只需要生成一次，然后备份起来起来即可。
+
+cd ~/.ssh
+ssh-keygen -t rsa -C "xuhansheng@gmail.com"//上述step 4配置的email，一路回车
+
+打开C:\Documents and Settings\Administrator\.ssh\id_rsa.pub,里面的内容就是SSH public key。
+
+3.	服务端配置
+1)	申请帐号
+http://github.com/plans，免费帐号服务端有300M的磁盘空间
+2)	在服务端创建项目名，本文档以StompTest为例。
+3)	https://github.com/account的SSH public key中增加客户端生成的key。
+
+4.	客户端初始化项目（initializing a new git repo）
+
+Sample：
+
+mkdir StompTest
+cd StompTest
+git init
+git add .
+git commit -m 'initial commit'
+git remote add origin git@github.com:xuhansheng/StompTest.git
+git push origin master
+
+5.	从服务端克隆一个存在的项目
+
+git clone git@github.com:xuhansheng/StompTest.git
+
+注意clone后面的参数url 需要用private里面url。Read-Only和HTTP Read-Only clone下来的代码没有修改服务端代码的权限。
+
+6.	通常的使用流程
+1)	从服务端同步代码
+
+git pull origin master
+
+2)	往服务端增加一个Readme的文件
+
+git add Readme
+git commit –a 
+git push origin master
+
+3)	从服务器删除一个readme.txt文件
+
+git rm readme.txt
+git commit -m "remove readme.txt"
+git push origin master
+
+7.	备注
+本文只是说明git的简单流程，没有涉及branch，tag等方面的应用。大家可以参考git help git 和 git help command来寻求在线帮助。
+
+参考源：
+http://learn.github.com/
+http://help.github.com/
+
+8.	查看库大小
+du -hs
+
+9.	branch相关
+
+
+10.	tag相关
