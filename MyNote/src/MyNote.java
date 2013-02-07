@@ -7,9 +7,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
 
 import java.io.*;
+import java.sql.*;
 
 public class MyNote extends JFrame implements ActionListener{
 
@@ -33,6 +33,33 @@ public class MyNote extends JFrame implements ActionListener{
         
         @SuppressWarnings ( "unused" )
         MyNote myNote = new MyNote();
+        
+        String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/exercise";
+        String user = "root";
+        String password = "";
+        Connection ct = null;
+        Statement stmt = null;
+        String sql = "insert into default_integer values(0,0,0,0,0,0)";
+        
+        try {
+			Class.forName(driver);
+			ct = DriverManager.getConnection(url, user, password);
+			stmt = ct.createStatement();
+			stmt.executeUpdate(sql);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				ct.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
+        
         
     }
     
