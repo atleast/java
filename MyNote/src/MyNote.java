@@ -11,6 +11,8 @@ import javax.swing.text.BadLocationException;
 
 import java.io.*;
 
+import java.sql.*;
+
 public class MyNote extends JFrame implements ActionListener{
 
     /**
