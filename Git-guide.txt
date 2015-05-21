@@ -1,6 +1,6 @@
 Git Skeleton User Guide
 
-1.	What is Git？
+1.	What is Git? Hehe,I don't know...
 Git is a fast, open source, distributed version control system that is quickly replacing subversion in open source and corporate programming communities.
 
 2.	Install and config in client
@@ -19,18 +19,18 @@ git config --global user.email  "xuhansheng@gmail.com"
 cd ~/.ssh
 ssh-keygen -t rsa -C "xuhansheng@gmail.com"
 
-Open C:\Documents and Settings\Administrator\.ssh\id_rsa.pub, the content is SSH public key。
+Open C:\Documents and Settings\Administrator\.ssh\id_rsa.pub, the content is SSH public key
 
 3.	Config in server
 1)	Apply new account
 http://github.com/plans; free account has 300M space
 
-2)	Create new project in Github, use StompTest as an example。
+2)	Create new project in Github, use StompTest as an example:
 3)	Add SSH public key to https://github.com/account
 
 4.	initializing a new git repo
 
-Sample：
+Sample:
 
 mkdir StompTest
 cd StompTest
@@ -77,7 +77,7 @@ du -hs
 
 11.	Some useful commands: repository name: hello-world
      
-    1.Create a new repository：
+    1.Create a new repository
           
     $cd ~/hello-world
      
@@ -91,7 +91,7 @@ du -hs
      
     $git push origin master
      
-    2.Update project - add files：
+    2.Update project - add files
      
     $cd ~/hello-world
      
@@ -131,20 +131,3 @@ du -hs
      
     $git rm *
      
-    //——————————Error———————————
-     
-    1.$ git remote add origin git@github.com:WadeLeng/hello-world.git
-     
-    fatal: remote origin already exists.
-     
-    $ git remote rm origin
-     
-    $ git remote add origin git@github.com:WadeLeng/hello-world.git 就不会报错误了
-     
-    2. $ git push origin master
-     
-    error:failed to push som refs to
-     
-    $ git pull origin master //先把远程服务器github上面的文件拉先来，再push 上去。
-     
-    //—————————————
