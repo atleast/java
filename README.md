@@ -1,4 +1,1 @@
-java
-====
-
-code for learning and studying java
+Code for learning and studying
