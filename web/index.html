@@ -2,27 +2,88 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Lastone backyard</title>
-	<!--<script language="JavaScript">
-		alert("Welcome home^^");
-	</script>-->
-</head>
-<body>
+	
 	<script language="JavaScript">
-		document.write("<h2>Lastone Playground</h2>");
+		function sayHi(){
+			alert("Welcome home^^");
+		}
+		function sayBye(){
+			alert("Bye...");
+		}
+		<!--窗口重定向-->
+		function gotoPlay(url){
+			//alert("Goto:"+url);
+			window.location=url;
+		}
+		function openWindow(url){
+			window.open(url,"Play","width=470,height=150,scrollbars=yes,resizable=no");
+		}
+
+		function validateEmail(form){
+			var value=form.email.value;
+			if(!/^\w+@\w+.\w+$/.test(value)){
+				alert("Email格式不正确，请重新输入");
+				form.email.focus();
+				form.email.select();
+				return false;
+			}
+			return true;
+		}
+		function addRowByJS(){
+			var table=document.getElementById("userTable");
+			var tr=table.insertRow();
+			var td_username=tr.insertCell();
+			var td_email=tr.insertCell();
+			var td_gender=tr.insertCell();
+			var td_dept=tr.insertCell();
+			var td_inst=tr.insertCell();
+			var td_note=tr.insertCell();
+			var td_operate=tr.insertCell();
+
+			td_username.innerHTML=document.personInfo.username.value;
+			//alert("username="+document.personInfo.username.value);
+			td_email.innerHTML=document.personInfo.email.value;
+			td_gender.innerHTML="男";
+			td_dept.innerHTML="经营部";
+			td_inst.innerHTML="唱歌";
+			td_note.innerHTML=document.personInfo.note.value;
+			td_operate.innerHTML="<input type=button' value='-' onClick='deleteRowByJS(this);'>";
+			console.log("td_username:"+document.personInfo.username.value+",td_email:"+document.personInfo.email.value);
+		}
+		function deleteRowByJS(btn){
+			var tr=btn.parentNode.parentNode;
+			var table=document.getElementById("userTable");
+			if(window.confirm('确认删除?')){
+				table.deleteRow(tr.rowIndex);
+			}else{
+				alert("别乱点");
+			}
+		}
 	</script>
 
-	<h4><a href="http://www.lastone.net">Click me to play..	.</a></h4>
+</head>
+<body onLoad="" onUnLoad="sayBye()">
+<!--<body onLoad="sayHi()" onUnLoad="sayBye()">-->
 
-	<h3>Please login</h3>
-	
-	<form name="personinfo" action="" method="post">
+	<script language="JavaScript">
+		document.write("<h4>Lastone Playground</h4>");
+	</script>
+
+	<h4><a href="#" onClick="gotoPlay('play.html')">Click me to play...</a></h4>
+	<hr>
+
+	<h3>Please register</h3>
+	<form name="personInfo" action="" method="post" onSubmit="">
+	<!--<form name="personinfo" action="" method="post" onSubmit="return validateEmail(this)">-->
 		<input type="hidden" name="uid" value="No." size="2" maxlength="9"><br>
-		用&nbsp;&nbsp;户:<input type="text" name="username" value="请输入您的用户名"><br>
-		密&nbsp;&nbsp;码:<input type="password" name="password" value="请输入您的密码"><br>
+		用户名:<input type="text" name="username" placeholder="请输入您的用户名"><br>
+		密&nbsp;&nbsp;码:<input type="password" name="password" placeholder="请输入您的密码"><br>
 		头&nbsp;&nbsp;像:<input type="file" name="avatar"></file><input type="image" name="upload" src="upload.jpg" width="20" height="20"><br>
+		邮&nbsp;&nbsp;箱:<input type="text" name="email" placeholder="请输入您的邮箱"><br>
+		
 		性&nbsp;&nbsp;别:<input type="radio" name="gender" value="male" checked>男
-				 <input type="radio" name"gender" value="female">女<br>
-		部&nbsp;&nbsp;门:<select name="dept">
+				 <input type="radio" name="gender" value="female">女<br>
+		部&nbsp;&nbsp;门:<select name="dept" onChange="openWindow('play.html')">
 					<option value="tech">技术部</option>
 					<option value="operation" selected>运营部</option>
 					<option value="bussiness">经营部</option>
@@ -33,9 +94,30 @@
 				 <input type="checkbox" name="inst" value="program" checked>编程
 				 <input type="checkbox" name="inst" value="surfing">上网<br>
 		个人宣言:<textarea name="note" cols="30" rows="1">这家话很懒，什么也没有留下。。。</textarea><br>
-		<input type="submit" value="注册"><input type="reset" value="重置">
+		<input type="submit" value="注册"><input type="reset" value="重置"><input type="button" value="添加" onClick="addRowByJS()">
 	<form/>
-
+	<hr>
+	<table id="userTable" border="1">
+		<tr>
+			<td>用户名</td>
+			<td>邮箱</td>
+			<td>性别</td>
+			<td>部门</td>
+			<td>兴趣</td>
+			<td>宣言</td>
+			<td>移除</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>lastone</td>
+			<td>lastone@126.com</td>
+			<td>男</td>
+			<td>技术部</td>
+			<td>编程</td>
+			<td>技术改变世界</td>
+			<td><input type="button" value="-" onClick="deleteRowByJS(this)"></td>
+		</tr>
+	</table>	
 	<hr>
 	<!--这是一条注释，也是一个分割线-->
 	<center>
@@ -46,7 +128,7 @@
 				</td>
 				<td rowspan="2">
 					<center>
-					<img src="fu.jpg">
+					<img src="sky.jpg">
 					</center>
 				</td>
 			</tr>
@@ -60,6 +142,7 @@
 			</tr>
 		</table>
 	</center>
+
 	<hr>
 	<center>
 	9*9乘法表:<br>
