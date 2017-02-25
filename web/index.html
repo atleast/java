@@ -66,10 +66,45 @@
 			console.log("td_username:"+document.personInfo.username.value+",td_email:"+document.personInfo.email.value);
 		}
 
-		function addByDom(){
+		function addRowByDom(){
 
+			var table=document.getElementById("userTable");
+			var username=document.getElementById("username").value;
+			var email=document.getElementById("email").value;
+			var gender=document.getElementById("gender").value;
+			var dept=document.getElementById("dept").value;
+			var inst=document.getElementById("inst").value;
+			var note=document.getElementById("note").value;
+			var operate="<input type='button' value='-' onClick='deleteRowByJS(this);'>";
+
+			var tr=document.createElement("tr");
+			var tbody=document.createElement("tbody");
+			var td_username=document.createElement("td");
+			var td_email=document.createElement("td");
+			var td_gender=document.createElement("td");
+			var td_dept=document.createElement("td");
+			var td_inst=document.createElement("td");
+			var td_note=document.createElement("td");
+			var td_operate=document.createElement("td");
+
+			td_username.appendChild(document.createTextNode(username));
+			td_email.appendChild(document.createTextNode(email));
+			td_gender.appendChild(document.createTextNode(gender));
+			td_dept.appendChild(document.createTextNode(dept));
+			td_inst.appendChild(document.createTextNode(inst));
+			td_note.appendChild(document.createTextNode(note));
+			td_operate.appendChild(document.createTextNode(operate));
+
+			tr.appendChild(td_username);
+			tr.appendChild(td_email);
+			tr.appendChild(td_gender);
+			tr.appendChild(td_dept);
+			tr.appendChild(td_inst);
+			tr.appendChild(td_note);
+			tr.appendChild(td_operate);
 			
-
+			tbody.appendChild(tr);
+			table.appendChild(tbody);
 		}
 		function deleteRowByJS(btn){
 			var tr=btn.parentNode.parentNode;
@@ -97,24 +132,24 @@
 	<form name="personInfo" action="" method="post" onSubmit="">
 	<!--<form name="personinfo" action="" method="post" onSubmit="return validateEmail(this)">-->
 		<input type="hidden" name="uid" value="No." size="2" maxlength="9"><br>
-		用户名:<input type="text" name="username" placeholder="请输入您的用户名"><br>
+		用&nbsp;&nbsp;户:<input type="text" name="username" id="username" placeholder="请输入您的用户名"><br>
 		密&nbsp;&nbsp;码:<input type="password" name="password" placeholder="请输入您的密码"><br>
 		头&nbsp;&nbsp;像:<input type="file" name="avatar"></file><input type="image" name="upload" src="upload.jpg" width="20" height="20"><br>
-		邮&nbsp;&nbsp;箱:<input type="text" name="email" placeholder="请输入您的邮箱"><br>
+		邮&nbsp;&nbsp;箱:<input type="text" name="email" id="email" placeholder="请输入您的邮箱"><br>
 		
-		性&nbsp;&nbsp;别:<input type="radio" name="gender" value="男" checked>男
-				 <input type="radio" name="gender" value="女">女<br>
-		部&nbsp;&nbsp;门:<select name="dept" onChange="openWindow('play.html')">
+		性&nbsp;&nbsp;别:<input type="radio" name="gender" id="gender" value="男" checked>男
+				 <input type="radio" name="gender" id="gender" value="女">女<br>
+		部&nbsp;&nbsp;门:<select name="dept" id="dept" onChange="openWindow('play.html')">
 					<option value="技术部">技术部</option>
 					<option value="运营部" selected>运营部</option>
 					<option value="经营部">经营部</option>
 				 </select><br>
-		兴&nbsp;&nbsp;趣:<input type="checkbox" name="inst" value="唱歌">唱歌
-				 <input type="checkbox" name="inst" value="游泳">游泳
-				 <input type="checkbox" name="inst" value="跳舞">跳舞
-				 <input type="checkbox" name="inst" value="编程" checked>编程
-				 <input type="checkbox" name="inst" value="上网">上网<br>
-		个人宣言:<textarea name="note" cols="30" rows="1">这家话很懒，什么也没有留下。。。</textarea><br>
+		兴&nbsp;&nbsp;趣:<input type="checkbox" name="inst" id="inst" value="唱歌">唱歌
+				 <input type="checkbox" name="inst" id="inst" value="游泳">游泳
+				 <input type="checkbox" name="inst" id="inst" value="跳舞">跳舞
+				 <input type="checkbox" name="inst" id="inst" value="编程" checked>编程
+				 <input type="checkbox" name="inst" id="inst" value="上网">上网<br>
+		个人宣言:<textarea name="note" id="note" cols="30" rows="1">这家话很懒，什么也没有留下。。。</textarea><br>
 		<input type="submit" value="注册"><input type="reset" value="重置"><input type="button" value="添加ByJS" onClick="addRowByJS()"><input type="button" value="添加ByDom" onClick="addRowByDom()">
 	<form/>
 	<hr>
