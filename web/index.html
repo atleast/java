@@ -49,11 +49,14 @@
 			}else{
 				td_gender.innerHTML=document.personInfo.gender[1].value;
 			}
+			<!-- 
 			for(i=0;i<document.personInfo.dept.length;i++){
 				if(document.personInfo.dept[i].selected){
 					td_dept.innerHTML=document.personInfo.dept[i].value;
 				}
 			}
+			-->
+			td_dept.innerHTML=document.personInfo.dept.value;
 			var inst="";
 			for(i=0;i<document.personInfo.inst.length;i++){
 				if(document.personInfo.inst[i].checked){
@@ -139,11 +142,14 @@
 		
 		性&nbsp;&nbsp;别:<input type="radio" name="gender" id="gender" value="男" checked>男
 				 <input type="radio" name="gender" id="gender" value="女">女<br>
-		部&nbsp;&nbsp;门:<select name="dept" id="dept" onChange="openWindow('play.html')">
+		<!--部&nbsp;&nbsp;门:<select name="dept" id="dept" onChange="openWindow('play.html')">
 					<option value="技术部">技术部</option>
 					<option value="运营部" selected>运营部</option>
 					<option value="经营部">经营部</option>
-				 </select><br>
+				 </select><br>-->
+		部&nbsp;&nbsp;门:<input type="button" value="请选择" onClick="openWindow('dept.html')"><br>
+		<input type="hidden" name="dept" id="dept"><br>
+		
 		兴&nbsp;&nbsp;趣:<input type="checkbox" name="inst" id="inst" value="唱歌">唱歌
 				 <input type="checkbox" name="inst" id="inst" value="游泳">游泳
 				 <input type="checkbox" name="inst" id="inst" value="跳舞">跳舞

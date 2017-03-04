@@ -1,0 +1,24 @@
+<html>
+<meta charset="UTF-8">
+<head>
+
+<title>Dept</title>
+	<script language="javascript">
+		function returnValue(){
+			window.opener.document.personInfo.dept.value=document.deptForm.dept.value;
+			window.close();
+		}
+	</script>
+</head>
+
+<body>
+<form name="deptForm">
+	选择:	<select name="dept">
+			<option value="技术部">技术部</option>
+			<option value="运营部">运营部</option>
+			<option value="经营部">经营部</option>
+		</select>
+	<input type="button" value="返回" onClick="returnValue();">
+</form>
+</body>
+</html>
