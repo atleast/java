@@ -66,6 +66,7 @@
 			td_inst.innerHTML=inst;
 			td_note.innerHTML=document.personInfo.note.value;
 			td_operate.innerHTML="<input type='button' value='-' onClick='deleteRowByJS(this);'>";
+			console.log("Windows IE 8正常模式不支持console.log命令，只有调试模式才支持，所有console.log在上线之后尽量都注释掉);
 			console.log("td_username:"+document.personInfo.username.value+",td_email:"+document.personInfo.email.value);
 		}
 
@@ -96,7 +97,7 @@
 			td_dept.appendChild(document.createTextNode(dept));
 			td_inst.appendChild(document.createTextNode(inst));
 			td_note.appendChild(document.createTextNode(note));
-			td_operate.appendChild(document.createTextNode(operate));
+			td_operate.innerHTML=operate;
 
 			tr.appendChild(td_username);
 			tr.appendChild(td_email);
