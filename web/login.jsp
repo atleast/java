@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Please login</title>
-</head>>
+</head>
 <body>
     <%
         out.println("<h1>Hello World!</h1>");
