@@ -13,7 +13,7 @@
         Java中提供的多行注释，客户端看不见
       */
     %>
-    insert into user (id,name,password,avatar,email,gender,dept,inst,note) values (0,'lastone','A15','http://www.lastone.net/avatar/0.jpg','lastone@yeah.net',1,'tech','swim','nothing is impossible');
+    insert into user (id,name,password,avatar,email,gener,dept,inst,note) values (0,'lastone','A15','http://www.lastone.net/avatar/0.jpg','lastone@yeah.net',1,'tech','swim','nothing is impossible');
 
     <%!
         //全局常量
