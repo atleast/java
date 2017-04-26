@@ -41,7 +41,7 @@
         out.println("<h1>"+sayHello(request.getParameter("username"))+", you are at "+pageName+".</h1>");
         out.println("<h3>"+new User(request.getParameter("username"), 3)+"</h3>");
     %>
-
+<%--
     <%@page import="java.sql.*"%>
     <%!
 	//数据库操作
@@ -140,5 +140,6 @@
         }
     %>
     </table>
+--%>
 </body>
 </html>
