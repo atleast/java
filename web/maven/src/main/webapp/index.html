@@ -2,93 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Last One</title>
-    <script language="JavaScript">
-        var stoneFlag=false;
-        var headFlag=false;
-        var qrFlag=false;
-        var stoneNum=3;
-        var headNum=5;
-        var qrNum=7;
-        function layout(divName, num) {
-            var parentNode=document.getElementById(divName);
-            for(i=0;i<num;i++) {
-                var childNode=document.createElement("input");
-                childNode.type = "image";
-                childNode.id = divName+i;
-                childNode.src = "images/"+divName+".png";
-                childNode.width = "50";
-                childNode.height = "50";
-                childNode.setAttribute("onclick","removeStone('"+divName+"','"+divName+i+"')");
-                parentNode.appendChild(childNode);
-            }
-        }
-        function removeStone(divName,stoneID) {
-            if(!(stoneFlag||headFlag||qrFlag)) {
-                switch (divName) {
-                    case "stone":
-                        stoneFlag = true;
-                        break;
-                    case "head":
-                        headFlag = true;
-                        break;
-                    case "qr":
-                        qrFlag = true;
-                        break;
+    <script language="JavaScript" src="js/play.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-                }
-            }
-            switch (divName){
-                case "stone":
-                    judgeStatus(stoneFlag,divName,stoneID);
-                    stoneNum--;
-                    checkFinalResult();
-                    break;
-                case "head":
-                    judgeStatus(headFlag,divName,stoneID);
-                    headNum--;
-                    checkFinalResult();
-                    break;
-                case "qr":
-                    judgeStatus(qrFlag,divName,stoneID);
-                    qrNum--;
-                    checkFinalResult();
-                    break;
-            }
-        }
-        function judgeStatus(flag,divName,stoneID) {
-            if(flag){
-                var parentNode=document.getElementById(divName);
-                parentNode.removeChild(document.getElementById(stoneID));
-            }else{
-                alert("NOT ALLOWED!!!");
-            }
-        }
-        function turnOver() {
-            stoneFlag=false;
-            headFlag=false;
-            qrFlag=false;
-        }
-        function checkFinalResult() {
-            var sum=stoneNum+headNum+qrNum;
-            if(sum==1){
-                alert("Congratulations! You Win!");
-            }
-        }
-    </script>
+    <title>Lastone</title>
+
 </head>
+
 <body onload="layout('stone',3),layout('head',5),layout('qr',7);">
-Hello, world!<br>
-Welcome to last one playground, the game is ruled by the following tips:<br>
-1. One or more stone can be removed from ONLY one group, for example, one, two, three stones can be removed from group one, or one, two, three, four, five stones can be removed from group two, etc.<br>
-2. Stones in two or more groups can NOT be removed at the same time, for example, one stone in group one and one stone in group two can NOT be removed at the same time.<br>
-<br>
+<p>Hello, BABY! Welcome to last one playground!</p>
+<p>Last one is a small game which is played by the following rules:</p>
+<p>1. One or more stone can be removed from ONLY one group.</p>
+<p>2. Stones in two or more groups can NOT be removed at the same time.</p>
+
     <div id="stone" align="center"></div>
     <div id="head" align="center"></div>
     <div id="qr" align="center"></div>
 
-    <input type="radio" name="turn" align="center" value="PlayerOne" onchange="turnOver();" checked>Player One
-    <input type="radio" name="turn" align="center" value="PlayerTwo" onchange="turnOver();"> Player Two<br>
+    <div class="turn">
+        <input type="radio" name="turn" align="center" value="PlayerOne" onchange="turnOver();" checked>Player One
+        <input type="radio" name="turn" align="center" value="PlayerTwo" onchange="turnOver();"> Player Two
+    </div>
+
 
 </body>
 </html>

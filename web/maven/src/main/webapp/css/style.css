@@ -1,0 +1,11 @@
+body{
+    background: azure;
+}
+#stone,#head,#qr{
+    margin: 3px;
+    padding: 10px;
+}
+.turn{
+    text-align: center;
+    font-size: 25px;
+}
